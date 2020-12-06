@@ -18,7 +18,7 @@ In either case
 1. For the Rust, cd into the root directory (where the Cargo.toml file is located) and run the Rust cargo command given above.  This will build, and execute, the utility.  It will load the data into the given url, and display it in reverse order after reading it from the server server passed as the reading url.  Executing `cargo run -- --help` will provide information about the command arguments.
 1. For the .NET Core version, cd into the root directory (where the Program.cs file is located) and execute the dotnet command given above, again passing it the two url arguments.  This will build and execute the utility, isnerting the data at the given insert url, and reading it in reverse order from the url given for the reading DB.
 
-Data is written to the database incrementally from 1 to 100, and the score is the value of the inserted ordinal, _i.e_, value=1 will have a of score=1.  These are then read in reverse order by score, _i.e._, 100 to 1.
+Data is written to the database from 1 to 100, and the score is DB the value of the inserted ordinal, _i.e_, for a value of 1, the element will have a score of 1.  These are then read from the DB at the URL passed in as the reading DB, in reverse order by score, _i.e._, 100 to 1.
 
 These utilities are intended only as a reference on basic communication with Redis.  There are many improvements that can be implemented to demonstrate more complex, and real-world interactions.  Below are just a few that immediately come to mind.
 1. Enable TLS for security
