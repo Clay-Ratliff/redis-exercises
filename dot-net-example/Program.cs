@@ -25,8 +25,8 @@ namespace dot_net_example
                 Console.WriteLine($"The value for --insert-url is: {insertUrl}");
                 Console.WriteLine($"The value for --read-url is: {readUrl}");
                 var programInstance = new InsertAndReadOrdinals();
-                var writeClient = new RedisClient(insertUrl);
-                var readClient = new RedisClient(readUrl);
+                var writeClient = new RedisClient(insertUrl ??  "redis://localhost:12000" );
+                var readClient = new RedisClient(readUrl ??  "redis://localhost:12000");
                 programInstance.populateRedisWithOrdinals(writeClient);
                 programInstance.readOrdinalsFromRedis(readClient);
             });
