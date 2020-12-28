@@ -22,8 +22,8 @@ namespace dot_net_example
 
             rootCommand.Description = "C# .NET Core simple example of connecting to a Redis DB";
             rootCommand.Handler = CommandHandler.Create<string?, string?>((insertUrl, readUrl) => {
-                Console.WriteLine($"The value for --insert-url is: {insertUrl}");
-                Console.WriteLine($"The value for --read-url is: {readUrl}");
+                Console.WriteLine($"The value for --insert-url is: {insertUrl ?? "Not provided, using defaults"}");
+                Console.WriteLine($"The value for --read-url is: {readUrl ?? "Not provided, using defaults"}");
                 var programInstance = new InsertAndReadOrdinals();
                 var writeClient = new RedisClient(insertUrl ??  "redis://localhost:12000" );
                 var readClient = new RedisClient(readUrl ??  "redis://localhost:12000");
